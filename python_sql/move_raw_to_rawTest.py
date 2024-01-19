@@ -80,7 +80,7 @@ for i in range(len(cains)):
                           value = WatYrs)
                 
                 # write new data to MySQL database
-                #missing_data_df.to_sql(name='raw_Ttherm_test_%s' %cains[i], con=engine, if_exists = 'append', index=False)
+                missing_data_df.to_sql(name='raw_Ttherm_test_%s' %cains[i], con=engine, if_exists = 'append', index=False)
             
             # for lowercain
             else:
@@ -89,7 +89,7 @@ for i in range(len(cains)):
                           column = 'WatYr',
                           value = WatYrs)
                 # write new data to MySQL database
-                #missing_data_df.to_sql(name='raw_Ttherm_test_%s' %cains[i], con=engine, if_exists = 'append', index=False)
+                missing_data_df.to_sql(name='raw_Ttherm_test_%s' %cains[i], con=engine, if_exists = 'append', index=False)
             
             # write current time for sanity check and exit loop
             current_dateTime = datetime.now()

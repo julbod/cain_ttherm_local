@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 # version 1.0.0
 
-# This code reads in the 'raw' SQL database for Stephanie stations connected to
-# SWARM satellite system and if the latest record is not on the 'clean' SQL 
-# database, it pushes the new data to appropriate 'clean' SQL database 
-# for VIU-Hydromet. 
-# Written by J. Bodart
+# This code reads in the 'raw' SQL database for both lowercain and cainridgerun
+# and pushes the raw data to 'raw_Ttherm_test_lowercain' and
+# 'raw_Ttherm_test_cainridgerun' which are used in the "cain_ttherm_local"
+# GitHub project (on Julien's GitHub) to visualise the two air_temp sensors
+# installed temporarly at both stations to check them. When these are removed,
+# this code and the associated shinyapp can also be deleted. For now, the code
+# will be stored on Digital Ocean and ran every 15 mins to check new data
+# Written by J. Bodart (2024-01-19)
 
 import pandas as pd 
 import numpy as np

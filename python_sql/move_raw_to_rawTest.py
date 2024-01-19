@@ -58,8 +58,8 @@ for i in range(len(cains)):
             last_idx = last_dt_sql_idx
             
             # only keep new data that needs added to sql database
-            missing_data_df = sql_file_raw_orig.iloc[:-last_idx]
-            missing_data_dt = sql_file_raw_orig['DateTime'].iloc[:-last_idx]   
+            missing_data_df = sql_file_raw_orig.iloc[:last_idx]
+            missing_data_dt = sql_file_raw_orig['DateTime'].iloc[:last_idx]   
 
             # calculate water year (new year starts on 10.01.YYYY). 
             # If months are before October, do nothing. Else add +1

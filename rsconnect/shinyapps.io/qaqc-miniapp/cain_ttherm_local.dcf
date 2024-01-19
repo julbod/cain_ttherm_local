@@ -5,7 +5,7 @@ account: qaqc-miniapp
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10975470
-bundleId: 8163578
+bundleId: 8163690
 url: https://qaqc-miniapp.shinyapps.io/cain_ttherm_local/
 version: 1
 asMultiple: FALSE

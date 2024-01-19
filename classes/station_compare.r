@@ -7,7 +7,7 @@
 #   HTML(paste(str1))
 # })
 
-# # reactive element to create year list based on available years for chosen station
+# reactive element to create year list based on available years for chosen station
 observe({
   req(input$station_site)
   # need to find the year range of selected sites. finds the max of the two start years as the min.
@@ -15,8 +15,13 @@ observe({
   min_year <- max(unlist(yr_list))
   max_year <- weatherdash::wtr_yr(Sys.Date(), 10)
   year_range <- seq.int(min_year, max_year, by = 1)
+  
+  # Restrict year_range to only include 2024
+  year_range <- intersect(year_range, c(2024))
+  
   updateSelectInput(session, "station_year", "Select Water Year to Compare: ", year_range, selected = max_year)
 })
+
 
 # get intersection of variables for selected stations
 output$varSelection_stn <- renderUI({

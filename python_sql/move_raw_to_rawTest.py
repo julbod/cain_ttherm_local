@@ -21,12 +21,11 @@ import config
 engine = config.main_sql()
 
 # check both 'raw' and 'clean' for each wx station and push if necessary
-cains = ['cainridgerun','lowercain'] # the number associated with the stephanie stations connected to GOES
+cains = ['cainridgerun','lowercain']
 for i in range(len(cains)):  
     while True:
         print('Checking for new data from satellite for: %s' %(cains[i])) 
         
-        # note Steph 9 is Upper Russell here
         if cains[i] == 'cainridgerun':
             sql_file_raw_orig = pd.read_sql_query(sql="SELECT * FROM raw_%s ORDER BY DateTime DESC LIMIT 100" %(cains[i]), con = engine)
             sql_file_raw = pd.read_sql_query(sql="SELECT * FROM raw_Ttherm_test_%s ORDER BY DateTime DESC LIMIT 100" %(cains[i]), con = engine)
@@ -62,7 +61,7 @@ for i in range(len(cains)):
             missing_data_df = sql_file_raw_orig.iloc[:-last_idx]
             missing_data_dt = sql_file_raw_orig['DateTime'].iloc[:-last_idx]   
 
-            # calculate water year for Stephanies (new year starts on 10.01.YYYY). 
+            # calculate water year (new year starts on 10.01.YYYY). 
             # If months are before October, do nothing. Else add +1
             WatYrs = []
             for j in range(len(missing_data_df)):

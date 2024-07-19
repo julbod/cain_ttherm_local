@@ -27,11 +27,11 @@ for i in range(len(cains)):
         print('Checking for new data from satellite for: %s' %(cains[i])) 
         
         if cains[i] == 'cainridgerun':
-            sql_file_raw_orig = pd.read_sql_query(sql="SELECT * FROM raw_%s ORDER BY DateTime DESC LIMIT 100" %(cains[i]), con = engine)
-            sql_file_raw = pd.read_sql_query(sql="SELECT * FROM raw_Ttherm_test_%s ORDER BY DateTime DESC LIMIT 100" %(cains[i]), con = engine)
+            sql_file_raw_orig = pd.read_sql_query(sql="SELECT * FROM raw_%s ORDER BY DateTime DESC LIMIT 300" %(cains[i]), con = engine)
+            sql_file_raw = pd.read_sql_query(sql="SELECT * FROM raw_Ttherm_test_%s ORDER BY DateTime DESC LIMIT 300" %(cains[i]), con = engine)
         else:
-            sql_file_raw_orig = pd.read_sql_query(sql="SELECT * FROM raw_%s ORDER BY DateTime DESC LIMIT 100" %(cains[i]), con = engine)
-            sql_file_raw = pd.read_sql_query(sql="SELECT * FROM raw_Ttherm_test_%s ORDER BY DateTime DESC LIMIT 100" %(cains[i]), con = engine)
+            sql_file_raw_orig = pd.read_sql_query(sql="SELECT * FROM raw_%s ORDER BY DateTime DESC LIMIT 300" %(cains[i]), con = engine)
+            sql_file_raw = pd.read_sql_query(sql="SELECT * FROM raw_Ttherm_test_%s ORDER BY DateTime DESC LIMIT 300" %(cains[i]), con = engine)
         
         # get datetime for both clean and raw sql databases
         last_dt_sql_raw_orig = sql_file_raw_orig['DateTime'].iloc[0]
